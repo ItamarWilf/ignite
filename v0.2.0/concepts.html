@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Concepts &mdash; ignite master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quickstart" href="quickstart.html" />
+    <link rel="prev" title="Ignite Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ignite-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#engine">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#events-and-handlers">Events and Handlers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#timeline-and-events">Timeline and events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#state">State</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#each-engine-has-its-own-events">Each engine has its own Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#creating-custom-events-based-on-forward-backward-pass">Creating Custom Events based on Forward/Backward Pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#creating-custom-events-based-on-iteration-and-epoch">Creating Custom Events based on Iteration and Epoch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#gradients-accumulation">Gradients accumulation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="engine.html">ignite.engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handlers.html">ignite.handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">ignite.metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">ignite.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">ignite.utils</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contrib Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contrib/engines.html">ignite.contrib.engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib/metrics.html">ignite.contrib.metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contrib/metrics.html#regression-metrics">Regression metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contrib/handlers.html">ignite.contrib.handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contrib/handlers.html#module-ignite.contrib.handlers.custom_events">custom_events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/handlers.html#module-ignite.contrib.handlers.param_scheduler">param_scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/handlers.html#module-ignite.contrib.handlers.tensorboard_logger">tensorboard_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/handlers.html#module-ignite.contrib.handlers.visdom_logger">visdom_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/handlers.html#module-ignite.contrib.handlers.tqdm_logger">tqdm_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/handlers.html#module-ignite.contrib.handlers.polyaxon_logger">polyaxon_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/handlers.html#more-on-parameter-scheduling">More on parameter scheduling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/handlers.html#example-with-ignite-contrib-handlers-cosineannealingscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.CosineAnnealingScheduler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/handlers.html#example-with-ignite-contrib-handlers-linearcyclicalscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.LinearCyclicalScheduler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/handlers.html#example-with-ignite-contrib-handlers-concatscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.ConcatScheduler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/handlers.html#piecewise-linear-scheduler">Piecewise linear scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/handlers.html#example-with-ignite-contrib-handlers-lrscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.LRScheduler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/handlers.html#concatenate-with-torch-schedulers">Concatenate with torch schedulers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ignite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Concepts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/concepts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="engine">
+<h2>Engine<a class="headerlink" href="#engine" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>essence</strong> of the framework is the class <a class="reference internal" href="engine.html#ignite.engine.Engine" title="ignite.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Engine</span></code></a>, an abstraction that loops a given number of times over
+provided data, executes a processing function and returns a result:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">epoch</span> <span class="o">&lt;</span> <span class="n">max_epochs</span><span class="p">:</span>
+    <span class="c1"># run once on data</span>
+    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">process_function</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Thus, a model trainer is simply an engine that loops multiple times over the training dataset and updates model parameters.
+Similarly, model evaluation can be done with an engine that runs a single time over the validation dataset and computes metrics.
+For example, model trainer for a supervised task:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_model</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">prepare_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">update_model</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">max_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="events-and-handlers">
+<h2>Events and Handlers<a class="headerlink" href="#events-and-handlers" title="Permalink to this headline">¶</a></h2>
+<p>To improve the <a class="reference internal" href="engine.html#ignite.engine.Engine" title="ignite.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Engine</span></code></a>’s flexibility, an event system is introduced that facilitates interaction on each step of
+the run:</p>
+<ul class="simple">
+<li><em>engine is started/completed</em></li>
+<li><em>epoch is started/completed</em></li>
+<li><em>batch iteration is started/completed</em></li>
+</ul>
+<p>Complete list of events can be found at <a class="reference internal" href="engine.html#ignite.engine.Events" title="ignite.engine.Events"><code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code></a>.</p>
+<p>Thus, user can execute a custom code as an event handler. Let us consider in more detail what happens when
+<a class="reference internal" href="engine.html#ignite.engine.Engine.run" title="ignite.engine.Engine.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a> is called:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fire_event</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">STARTED</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">epoch</span> <span class="o">&lt;</span> <span class="n">max_epochs</span><span class="p">:</span>
+    <span class="n">fire_event</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">EPOCH_STARTED</span><span class="p">)</span>
+    <span class="c1"># run once on data</span>
+    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">fire_event</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">ITERATION_STARTED</span><span class="p">)</span>
+
+        <span class="n">output</span> <span class="o">=</span> <span class="n">process_function</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+
+        <span class="n">fire_event</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">ITERATION_COMPLETED</span><span class="p">)</span>
+    <span class="n">fire_event</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">EPOCH_COMPLETED</span><span class="p">)</span>
+<span class="n">fire_event</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">COMPLETED</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At first <em>engine is started</em> event is fired and all this event handlers are executed (we will see in the next paragraph
+how to add event handlers). Next, <cite>while</cite> loop is started and <em>epoch is started</em> event occurs, etc. Every time
+an event is “fired”, attached handlers are executed.</p>
+<p>Attaching an event handler is simple using method <a class="reference internal" href="engine.html#ignite.engine.Engine.add_event_handler" title="ignite.engine.Engine.add_event_handler"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_event_handler()</span></code></a> or
+<a class="reference internal" href="engine.html#ignite.engine.Engine.on" title="ignite.engine.Engine.on"><code class="xref py py-meth docutils literal notranslate"><span class="pre">on()</span></code></a> decorator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">update_model</span><span class="p">)</span>
+
+<span class="n">trainer</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">STARTED</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">engine</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Start training&quot;</span><span class="p">))</span>
+<span class="c1"># or</span>
+<span class="nd">@trainer.on</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">STARTED</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">on_training_started</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Another message of start training&quot;</span><span class="p">)</span>
+
+<span class="c1"># attach handler with args, kwargs</span>
+<span class="n">mydata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">on_training_ended</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Training is ended. mydata={}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="n">trainer</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">COMPLETED</span><span class="p">,</span> <span class="n">on_training_ended</span><span class="p">,</span> <span class="n">mydata</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>User can also register custom events with <a class="reference internal" href="engine.html#ignite.engine.Engine.register_events" title="ignite.engine.Engine.register_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code></a>, attach handlers and fire custom events
+calling <a class="reference internal" href="engine.html#ignite.engine.Engine.fire_event" title="ignite.engine.Engine.fire_event"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fire_event()</span></code></a> in any handler or <cite>process_function</cite>.</p>
+<p class="last">See the source code of <a class="reference internal" href="contrib/engines.html#ignite.contrib.engines.create_supervised_tbptt_trainer" title="ignite.contrib.engines.create_supervised_tbptt_trainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">create_supervised_tbptt_trainer</span></code></a> for an example of usage of
+custom events.</p>
+</div>
+<div class="section" id="timeline-and-events">
+<h3>Timeline and events<a class="headerlink" href="#timeline-and-events" title="Permalink to this headline">¶</a></h3>
+<p>Below the events and some typical handlers are displayed on a timeline for a training loop with evaluation after every
+epoch:</p>
+<a class="reference external image-reference" href="_static/img/concepts/timeline_and_events.png"><img alt="_images/timeline_and_events.png" src="_images/timeline_and_events.png" /></a>
+</div>
+</div>
+<div class="section" id="state">
+<h2>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h2>
+<p>A state is introduced in <a class="reference internal" href="engine.html#ignite.engine.Engine" title="ignite.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Engine</span></code></a> to store the output of the <cite>process_function</cite>, current epoch,
+iteration and other helpful information. Each <a class="reference internal" href="engine.html#ignite.engine.Engine" title="ignite.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Engine</span></code></a> contains a <a class="reference internal" href="engine.html#ignite.engine.State" title="ignite.engine.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a>,
+which includes the following:</p>
+<ul class="simple">
+<li><strong>engine.state.epoch</strong>: Number of epochs the engine has completed. Initializated as 0.</li>
+<li><strong>engine.state.max_epochs</strong>: Number of epochs to run for. Initializated as 1.</li>
+<li><strong>engine.state.iteration</strong>: Number of iterations the engine has completed. Initialized as 0.</li>
+<li><strong>engine.state.output</strong>: The output of the <cite>process_function</cite> defined for the <a class="reference internal" href="engine.html#ignite.engine.Engine" title="ignite.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Engine</span></code></a>. See below.</li>
+</ul>
+<p>In the code below, <cite>engine.state.output</cite> will store the batch loss. This output is used to print the loss at
+every iteration.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">on_iteration_completed</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="n">iteration</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">iteration</span>
+    <span class="n">epoch</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">epoch</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">output</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Epoch: {}, Iteration: {}, Loss: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">iteration</span><span class="p">,</span> <span class="n">loss</span><span class="p">))</span>
+
+<span class="n">trainer</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">ITERATION_COMPLETED</span><span class="p">,</span> <span class="n">on_iteration_completed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since there is no restrictions on the output of <cite>process_function</cite>, Ignite provides <cite>output_transform</cite> argument for its
+<code class="xref py py-class docutils literal notranslate"><span class="pre">metrics</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">handlers</span></code>. Argument <cite>output_transform</cite> is a function used to transform <cite>engine.state.output</cite> for intended use. Below we’ll see different types of <cite>engine.state.output</cite> and how to transform them.</p>
+<p>In the code below, <cite>engine.state.output</cite> will be a list of loss, y_pred, y for the processed batch. If we want to attach <a class="reference internal" href="metrics.html#ignite.metrics.Accuracy" title="ignite.metrics.Accuracy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Accuracy</span></code></a> to the engine, <cite>output_transform</cite> will be needed to get y_pred and y from
+<cite>engine.state.output</cite>. Let’s see how that is done:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+
+<span class="nd">@trainer.on</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">EPOCH_COMPLETED</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">print_loss</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="n">epoch</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">epoch</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Epoch {epoch}: train_loss = {loss}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">))</span>
+
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">Accuracy</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">accuracy</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s1">&#39;acc&#39;</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similar to above, but this time the output of the <cite>process_function</cite> is a dictionary of loss, y_pred, y for the processed
+batch, this is how the user can use <cite>output_transform</cite> to get y_pred and y from <cite>engine.state.output</cite>. See below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+            <span class="s1">&#39;y_pred&#39;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">,</span>
+            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">}</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+
+<span class="nd">@trainer.on</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">EPOCH_COMPLETED</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">print_loss</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="n">epoch</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">epoch</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Epoch {epoch}: train_loss = {loss}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">))</span>
+
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">Accuracy</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]])</span>
+<span class="n">accuracy</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s1">&#39;acc&#39;</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>A good practice is to use <a class="reference internal" href="engine.html#ignite.engine.State" title="ignite.engine.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a> also as a storage of user data created in update or handler functions.
+For example, we would like to save <cite>new_attribute</cite> in the <cite>state</cite>:</p>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">user_handler_function</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">new_attribute</span> <span class="o">=</span> <span class="mi">12345</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quickstart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Ignite Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018, Torch Contributors
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: v0.2.0
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../v0.1.0/concepts.html">v0.1.0</a></dd>
+            <dd><a href="../v0.1.1/concepts.html">v0.1.1</a></dd>
+            <dd><a href="../v0.1.2/concepts.html">v0.1.2</a></dd>
+            <dd><a href="concepts.html">v0.2.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../master/concepts.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ignite.contrib.handlers.param_scheduler &mdash; ignite master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/ignite-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../concepts.html#engine">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../concepts.html#events-and-handlers">Events and Handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../concepts.html#state">State</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../engine.html">ignite.engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../handlers.html">ignite.handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../metrics.html">ignite.metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../exceptions.html">ignite.exceptions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contrib Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contrib/engines.html">ignite.contrib.engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contrib/metrics.html">ignite.contrib.metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contrib/metrics.html#regression-metrics">Regression metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contrib/handlers.html">ignite.contrib.handlers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ignite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ignite.contrib.handlers.param_scheduler</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ignite.contrib.handlers.param_scheduler</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="ParamScheduler"><a class="viewcode-back" href="../../../../contrib/handlers.html#ignite.contrib.handlers.ParamScheduler">[docs]</a><span class="k">class</span> <span class="nc">ParamScheduler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An abstract class for updating an optimizer&#39;s parameter value during</span>
+<span class="sd">    training.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        optimizer (`torch.optim.Optimizer` or dict): the optimizer or parameters group to use</span>
+<span class="sd">        param_name (str): name of optimizer&#39;s parameter to update</span>
+<span class="sd">        save_history (bool, optional): whether to log the parameter values</span>
+<span class="sd">            (default=False)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">param_name</span><span class="p">,</span> <span class="n">save_history</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_param_groups</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimizer</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_param_groups</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">param_groups</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_name</span> <span class="o">=</span> <span class="n">param_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_history</span> <span class="o">=</span> <span class="n">save_history</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_index</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_param</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">param_group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_param_groups</span><span class="p">:</span>
+            <span class="n">param_group</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_name</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_history</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="s1">&#39;param_history&#39;</span><span class="p">):</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="s1">&#39;param_history&#39;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">param_history</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">pg</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">param_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">pg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_param_groups</span><span class="p">]</span>
+            <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">param_history</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="ParamScheduler.get_param"><a class="viewcode-back" href="../../../../contrib/handlers.html#ignite.contrib.handlers.ParamScheduler.get_param">[docs]</a>    <span class="k">def</span> <span class="nf">get_param</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Method to get current optimizer&#39;s parameter value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="CyclicalScheduler"><a class="viewcode-back" href="../../../../contrib/handlers.html#ignite.contrib.handlers.CyclicalScheduler">[docs]</a><span class="k">class</span> <span class="nc">CyclicalScheduler</span><span class="p">(</span><span class="n">ParamScheduler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An abstract class for updating an optimizer&#39;s parameter value over a</span>
+<span class="sd">    cycle of some size.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        optimizer (`torch.optim.Optimizer` or dict): the optimizer or parameters group to use</span>
+<span class="sd">        param_name (str): name of optimizer&#39;s parameter to update</span>
+<span class="sd">        start_value (float): value at start of cycle</span>
+<span class="sd">        end_value (float) : value at the middle of the cycle</span>
+<span class="sd">        cycle_size (int) : length of cycle.</span>
+<span class="sd">        cycle_mult (float, optional) : ratio by which to change the cycle_size</span>
+<span class="sd">            at the end of each cycle (default=1),</span>
+<span class="sd">        save_history (bool, optional): whether to log the parameter values</span>
+<span class="sd">            (default: False)</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        If the scheduler is bound to an &#39;ITERATION_*&#39; event, &#39;cycle_size&#39; should</span>
+<span class="sd">        usually be the number of batches in an epoch.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">optimizer</span><span class="p">,</span>
+                 <span class="n">param_name</span><span class="p">,</span>
+                 <span class="n">start_value</span><span class="p">,</span>
+                 <span class="n">end_value</span><span class="p">,</span>
+                 <span class="n">cycle_size</span><span class="p">,</span>
+                 <span class="n">cycle_mult</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">save_history</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CyclicalScheduler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">optimizer</span><span class="p">,</span>
+            <span class="n">param_name</span><span class="p">,</span>
+            <span class="n">save_history</span><span class="o">=</span><span class="n">save_history</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_value</span> <span class="o">=</span> <span class="n">start_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_value</span> <span class="o">=</span> <span class="n">end_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cycle_size</span> <span class="o">=</span> <span class="n">cycle_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cycle_mult</span> <span class="o">=</span> <span class="n">cycle_mult</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cycle</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_index</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_index</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycle_size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">event_index</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cycle_size</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycle_mult</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cycle</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">CyclicalScheduler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LinearCyclicalScheduler"><a class="viewcode-back" href="../../../../contrib/handlers.html#ignite.contrib.handlers.LinearCyclicalScheduler">[docs]</a><span class="k">class</span> <span class="nc">LinearCyclicalScheduler</span><span class="p">(</span><span class="n">CyclicalScheduler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Linearly adjusts param value to &#39;end_value&#39; for a half-cycle, then linearly</span>
+<span class="sd">    adjusts it back to &#39;start_value&#39; for a half-cycle.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        optimizer (`torch.optim.Optimizer` or dict): the optimizer or parameters group to use</span>
+<span class="sd">        param_name (str): name of optimizer&#39;s parameter to update</span>
+<span class="sd">        start_value (float): value at start of cycle</span>
+<span class="sd">        end_value (float) : value at the middle of the cycle</span>
+<span class="sd">        cycle_size (int) : length of cycle.</span>
+<span class="sd">        cycle_mult (float, optional) : ratio by which to change the cycle_size</span>
+<span class="sd">            at the end of each cycle (default=1),</span>
+<span class="sd">        save_history (bool, optional): whether to log the parameter values</span>
+<span class="sd">            (default: False)</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        If the scheduler is bound to an &#39;ITERATION_*&#39; event, &#39;cycle_size&#39; should</span>
+<span class="sd">        usually be the number of batches in an epoch.</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        from ignite.contrib.handlers.param_scheduler import LinearCyclicalScheduler</span>
+
+<span class="sd">        scheduler = LinearCyclicalScheduler(optimizer, &#39;lr&#39;, 1e-3, 1e-1, len(train_loader))</span>
+<span class="sd">        trainer.add_event_handler(Events.ITERATION_COMPLETED, scheduler)</span>
+<span class="sd">        #</span>
+<span class="sd">        # Linearly increases the learning rate from 1e-3 to 1e-1 and back to 1e-3</span>
+<span class="sd">        # over the course of 1 epoch</span>
+<span class="sd">        #</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="LinearCyclicalScheduler.get_param"><a class="viewcode-back" href="../../../../contrib/handlers.html#ignite.contrib.handlers.LinearCyclicalScheduler.get_param">[docs]</a>    <span class="k">def</span> <span class="nf">get_param</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cycle_progress</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_index</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycle_size</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_value</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_value</span><span class="p">)</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cycle_progress</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span></div></div>
+
+
+<div class="viewcode-block" id="CosineAnnealingScheduler"><a class="viewcode-back" href="../../../../contrib/handlers.html#ignite.contrib.handlers.CosineAnnealingScheduler">[docs]</a><span class="k">class</span> <span class="nc">CosineAnnealingScheduler</span><span class="p">(</span><span class="n">CyclicalScheduler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Anneals &#39;start_value&#39; to &#39;end_value&#39; over each cycle.</span>
+
+<span class="sd">    The annealing takes the form of the first half of a cosine</span>
+<span class="sd">    wave (as suggested in [Smith17]_).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        optimizer (`torch.optim.Optimizer` or dict): the optimizer or parameters group to use</span>
+<span class="sd">        param_name (str): name of optimizer&#39;s parameter to update</span>
+<span class="sd">        start_value (float): value at start of cycle</span>
+<span class="sd">        end_value (float) : value at the end of the cycle</span>
+<span class="sd">        cycle_size (int) : length of cycle.</span>
+<span class="sd">        cycle_mult (float, optional) : ratio by which to change the cycle_size</span>
+<span class="sd">            at the end of each cycle (default=1),</span>
+<span class="sd">        save_history (bool, optional): whether to log the parameter values</span>
+<span class="sd">            (default: False)</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        If the scheduler is bound to an &#39;ITERATION_*&#39; event, &#39;cycle_size&#39; should</span>
+<span class="sd">        usually be the number of batches in an epoch.</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        from ignite.contrib.handlers.param_scheduler import CosineAnnealingScheduler</span>
+
+<span class="sd">        scheduler = CosineAnnealingScheduler(optimizer, &#39;lr&#39;, 1e-1, 1e-3, len(train_loader))</span>
+<span class="sd">        trainer.add_event_handler(Events.ITERATION_COMPLETED, scheduler)</span>
+<span class="sd">        #</span>
+<span class="sd">        # Anneals the learning rate from 1e-1 to 1e-3 over the course of 1 epoch.</span>
+<span class="sd">        #</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        from ignite.contrib.handlers.param_scheduler import CosineAnnealingScheduler</span>
+<span class="sd">        from ignite.contrib.handlers.param_scheduler import LinearCyclicalScheduler</span>
+
+<span class="sd">        optimizer = SGD(</span>
+<span class="sd">            [</span>
+<span class="sd">                {&quot;params&quot;: model.base.parameters(), &#39;lr&#39;: 0.001),</span>
+<span class="sd">                {&quot;params&quot;: model.fc.parameters(), &#39;lr&#39;: 0.01),</span>
+<span class="sd">            ]</span>
+<span class="sd">        )</span>
+
+<span class="sd">        scheduler1 = LinearCyclicalScheduler(optimizer.param_groups[0], &#39;lr&#39;, 1e-7, 1e-5, len(train_loader))</span>
+<span class="sd">        trainer.add_event_handler(Events.ITERATION_COMPLETED, scheduler1, &quot;lr (base)&quot;)</span>
+
+<span class="sd">        scheduler2 = CosineAnnealingScheduler(optimizer.param_groups[1], &#39;lr&#39;, 1e-5, 1e-3, len(train_loader))</span>
+<span class="sd">        trainer.add_event_handler(Events.ITERATION_COMPLETED, scheduler2, &quot;lr (fc)&quot;)</span>
+
+<span class="sd">    .. [Smith17] Smith, Leslie N. &quot;Cyclical learning rates for training neural networks.&quot;</span>
+<span class="sd">                 Applications of Computer Vision (WACV), 2017 IEEE Winter Conference on. IEEE, 2017</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CosineAnnealingScheduler.get_param"><a class="viewcode-back" href="../../../../contrib/handlers.html#ignite.contrib.handlers.CosineAnnealingScheduler.get_param">[docs]</a>    <span class="k">def</span> <span class="nf">get_param</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Method to get current optimizer&#39;s parameter value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cycle_progress</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">event_index</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycle_size</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_value</span> <span class="o">+</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">end_value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_value</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">cycle_progress</span><span class="p">))</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">ConcatScheduler</span><span class="p">(</span><span class="n">ParamScheduler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Concat a list of Schedulers.</span>
+
+<span class="sd">    The `ConcatScheduler` cycles through a list of schedulers (given by</span>
+<span class="sd">    `schedulers_list`). Each element in the list is a tuple whose first</span>
+<span class="sd">    element is the scheduler class, the second is the parameters used for</span>
+<span class="sd">    instantiating the scheduler, and the third is the duration of the</span>
+<span class="sd">    scheduler. If duration is `None` the `ConcatScheduler` will not</span>
+<span class="sd">    switch to the next scheduler.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        optimizer (`torch.optim.Optimizer` or dict): the optimizer or parameters group to use</span>
+<span class="sd">        param_name (str): name of optimizer&#39;s parameter to update</span>
+<span class="sd">        schedulers_list (list): List of three tuple of the order (scheduler_cls,</span>
+<span class="sd">            scheduler_kwds, duration).</span>
+<span class="sd">        save_history (bool, optional): whether to log the parameter values</span>
+<span class="sd">            (default: False)</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        from ignite.contrib.handlers.param_scheduler import ConcatScheduler</span>
+<span class="sd">        from ignite.contrib.handlers.param_scheduler import LinearCyclicalScheduler</span>
+<span class="sd">        from ignite.contrib.handlers.param_scheduler import CosineAnnealingScheduler</span>
+
+<span class="sd">        scheduler = ConcatScheduler(</span>
+<span class="sd">            optimizer,</span>
+<span class="sd">            &quot;lr&quot;,</span>
+<span class="sd">            [</span>
+<span class="sd">                (</span>
+<span class="sd">                    LinearCyclicalScheduler,</span>
+<span class="sd">                    dict(</span>
+<span class="sd">                        start_value=0.1,</span>
+<span class="sd">                        end_value=0.5,</span>
+<span class="sd">                        cycle_size=60</span>
+<span class="sd">                    ),</span>
+<span class="sd">                    30</span>
+<span class="sd">                ),</span>
+<span class="sd">                (</span>
+<span class="sd">                    CosineAnnealingScheduler,</span>
+<span class="sd">                    dict(</span>
+<span class="sd">                        start_value=0.5,</span>
+<span class="sd">                        end_value=0.01,</span>
+<span class="sd">                        cycle_size=60</span>
+<span class="sd">                    ),</span>
+<span class="sd">                    None</span>
+<span class="sd">                ),</span>
+<span class="sd">            ],</span>
+<span class="sd">        )</span>
+<span class="sd">        trainer.add_event_handler(Events.ITERATION_COMPLETED, scheduler)</span>
+<span class="sd">        #</span>
+<span class="sd">        # Sets the Learning rate linearly from 0.1 to 0.5 over 30 iterations. Then</span>
+<span class="sd">        # starts an annealing schedule from 0.5 to 0.01 over 60 iterations.</span>
+<span class="sd">        # The annealing cycles are repeated indefinitely.</span>
+<span class="sd">        #</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">optimizer</span><span class="p">,</span>
+                 <span class="n">param_name</span><span class="p">,</span>
+                 <span class="n">schedulers_list</span><span class="p">,</span>
+                 <span class="n">save_history</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ConcatScheduler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">param_name</span><span class="p">,</span> <span class="n">save_history</span><span class="o">=</span><span class="n">save_history</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_schedulers_list</span> <span class="o">=</span> <span class="n">schedulers_list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_schedulers_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_scheduler_switch</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optimizer</span>
+
+    <span class="k">def</span> <span class="nf">_next_scheduler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scheduler_cls</span><span class="p">,</span> <span class="n">scheduler_kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_scheduler_switch</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">_schedulers_list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_schedulers_index</span><span class="p">]</span>
+
+        <span class="n">kwds</span> <span class="o">=</span> <span class="n">scheduler_kwds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">optimizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span>
+                <span class="n">param_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">param_name</span><span class="p">,</span>
+                <span class="n">save_history</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_history</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scheduler</span> <span class="o">=</span> <span class="n">scheduler_cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_schedulers_index</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_schedulers_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_schedulers_list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_scheduler_switch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_next_scheduler_switch</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_scheduler_switch</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_next_scheduler</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scheduler</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018, Torch Contributors
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: v0.1.2
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../../../v0.1.0/index.html">v0.1.0</a></dd>
+            <dd><a href="../../../../../v0.1.1/index.html">v0.1.1</a></dd>
+            <dd><a href="param_scheduler.html">v0.1.2</a></dd>
+            <dd><a href="../../../../../v0.2.0/index.html">v0.2.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

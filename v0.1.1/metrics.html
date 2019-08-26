@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ignite.metrics &mdash; ignite master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ignite.exceptions" href="exceptions.html" />
+    <link rel="prev" title="ignite.handlers" href="handlers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ignite-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#engine">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#events-and-handlers">Events and Handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#state">State</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="engine.html">ignite.engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handlers.html">ignite.handlers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ignite.metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">ignite.exceptions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contrib Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contrib/engines.html">ignite.contrib.engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib/metrics.html">ignite.contrib.metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib/handlers.html">ignite.contrib.handlers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ignite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ignite.metrics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/metrics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ignite-metrics">
+<h1>ignite.metrics<a class="headerlink" href="#ignite-metrics" title="Permalink to this headline">¶</a></h1>
+<p>Metrics provide a way to compute various quantities of interest in an online
+fashion without having to store the entire output history of a model.</p>
+<p>In practice a user needs to attach the metric instance to an engine. The metric
+value is then computed using the output of the engine’s <cite>process_function</cite>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_function</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">return</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">process_function</span><span class="p">)</span>
+<span class="n">metric</span> <span class="o">=</span> <span class="n">Accuracy</span><span class="p">()</span>
+<span class="n">metric</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the engine’s output is not in the format <cite>y_pred, y</cite>, the user can
+use the <cite>output_transform</cite> argument to transform it:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_function</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;y_pred&#39;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">,</span> <span class="s1">&#39;y_true&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">process_function</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">output_transform</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+    <span class="c1"># `output` variable is returned by above `process_function`</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;y_true&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span>  <span class="c1"># output format is according to `Accuracy` docs</span>
+
+<span class="n">metric</span> <span class="o">=</span> <span class="n">Accuracy</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="n">output_transform</span><span class="p">)</span>
+<span class="n">metric</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="class">
+<dt id="ignite.metrics.Accuracy">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">Accuracy</code><span class="sig-paren">(</span><em>output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/accuracy.html#Accuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.Accuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the accuracy.</p>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form <cite>(y_pred, y)</cite>.</li>
+<li><cite>y_pred</cite> must be in the following shape (batch_size, num_categories, …) or (batch_size, …)</li>
+<li><cite>y</cite> must be in the following shape (batch_size, …)</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.BinaryAccuracy">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">BinaryAccuracy</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/binary_accuracy.html#BinaryAccuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.BinaryAccuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note: This metric is deprecated in favor of Accuracy.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.CategoricalAccuracy">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">CategoricalAccuracy</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/categorical_accuracy.html#CategoricalAccuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.CategoricalAccuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note: This metric is deprecated in favor of Accuracy.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.Loss">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">Loss</code><span class="sig-paren">(</span><em>loss_fn</em>, <em>output_transform=&lt;function Loss.&lt;lambda&gt;&gt;</em>, <em>batch_size=&lt;function Loss.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/loss.html#Loss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.Loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the average loss according to the passed loss_fn.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loss_fn</strong> (<em>callable</em>) – a callable taking a prediction tensor, a target
+tensor, optionally other arguments, and returns the average loss
+over all observations in the batch.</li>
+<li><strong>output_transform</strong> (<em>callable</em>) – a callable that is used to transform the
+<a class="reference internal" href="engine.html#ignite.engine.Engine" title="ignite.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">ignite.engine.Engine</span></code></a>’s <cite>process_function</cite>’s output into the
+form expected by the metric.
+This can be useful if, for example, you have a multi-output model and
+you want to compute the metric with respect to one of the outputs.
+The output is is expected to be a tuple (prediction, target) or
+(prediction, target, kwargs) where kwargs is a dictionary of extra
+keywords arguments.</li>
+<li><strong>batch_size</strong> (<em>callable</em>) – a callable taking a target tensor that returns the
+first dimension size (usually the batch size).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.MeanAbsoluteError">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">MeanAbsoluteError</code><span class="sig-paren">(</span><em>output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/mean_absolute_error.html#MeanAbsoluteError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.MeanAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the mean absolute error.</p>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form <cite>(y_pred, y)</cite>.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.MeanPairwiseDistance">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">MeanPairwiseDistance</code><span class="sig-paren">(</span><em>p=2</em>, <em>eps=1e-06</em>, <em>output_transform=&lt;function MeanPairwiseDistance.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/mean_pairwise_distance.html#MeanPairwiseDistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.MeanPairwiseDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the mean pairwise distance.</p>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form <cite>(y_pred, y)</cite>.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.MeanSquaredError">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">MeanSquaredError</code><span class="sig-paren">(</span><em>output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/mean_squared_error.html#MeanSquaredError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.MeanSquaredError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the mean squared error.</p>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form <cite>(y_pred, y)</cite>.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.Metric">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">Metric</code><span class="sig-paren">(</span><em>output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/metric.html#Metric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.Metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all Metrics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>output_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – a callable that is used to transform the
+<a class="reference internal" href="engine.html#ignite.engine.Engine" title="ignite.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">ignite.engine.Engine</span></code></a>’s <cite>process_function</cite>’s output into the
+form expected by the metric. This can be useful if, for example, you have a multi-output model and
+you want to compute the metric with respect to one of the outputs.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ignite.metrics.Metric.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/metric.html#Metric.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.Metric.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the metric based on it’s accumulated state.</p>
+<p>This is called at the end of each epoch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the actual quantity of interest</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Any</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotComputableError</span></code> – raised when the metric cannot be computed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ignite.metrics.Metric.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/metric.html#Metric.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.Metric.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the metric to to it’s initial state.</p>
+<p>This is called at the start of each epoch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ignite.metrics.Metric.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>output</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/metric.html#Metric.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.Metric.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the metric’s state using the passed batch output.</p>
+<p>This is called once for each batch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>output</strong> – the is the output from the engine’s process function</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.Precision">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">Precision</code><span class="sig-paren">(</span><em>average=False</em>, <em>output_transform=&lt;function Precision.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/precision.html#Precision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.Precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates precision.</p>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form <cite>(y_pred, y)</cite>.</li>
+</ul>
+<p>If <cite>average</cite> is True, returns the unweighted average across all classes.
+Otherwise, returns a tensor with the precision for each class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.Recall">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">Recall</code><span class="sig-paren">(</span><em>average=False</em>, <em>output_transform=&lt;function Recall.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/recall.html#Recall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.Recall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates recall.</p>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form <cite>(y_pred, y)</cite>.</li>
+</ul>
+<p>If <cite>average</cite> is True, returns the unweighted average across all classes.
+Otherwise, returns a tensor with the recall for each class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.RootMeanSquaredError">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">RootMeanSquaredError</code><span class="sig-paren">(</span><em>output_transform=&lt;function Metric.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/root_mean_squared_error.html#RootMeanSquaredError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.RootMeanSquaredError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the root mean squared error.</p>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form (y_pred, y).</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.TopKCategoricalAccuracy">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">TopKCategoricalAccuracy</code><span class="sig-paren">(</span><em>k=5</em>, <em>output_transform=&lt;function TopKCategoricalAccuracy.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/top_k_categorical_accuracy.html#TopKCategoricalAccuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.TopKCategoricalAccuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the top-k categorical accuracy.</p>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form <cite>(y_pred, y)</cite>.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.EpochMetric">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">EpochMetric</code><span class="sig-paren">(</span><em>compute_fn</em>, <em>output_transform=&lt;function EpochMetric.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/epoch_metric.html#EpochMetric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.EpochMetric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for metrics that should be computed on the entire output history of a model.
+Model’s output and targets are restricted to be of shape <cite>(batch_size, n_classes)</cite>. Output
+datatype should be <cite>float32</cite>. Target datatype should be <cite>long</cite>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Current implementation stores all input data (output and target) in as tensors before computing a metric.
+This can potentially lead to a memory error if the input data is larger than available RAM.</p>
+</div>
+<ul class="simple">
+<li><cite>update</cite> must receive output of the form <cite>(y_pred, y)</cite>.</li>
+</ul>
+<p>If target shape is <cite>(batch_size, n_classes)</cite> and <cite>n_classes &gt; 1</cite> than it should be binary: e.g. <cite>[[0, 1, 0, 1], ]</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>compute_fn</strong> (<em>callable</em>) – a callable with the signature (<cite>torch.tensor</cite>, <cite>torch.tensor</cite>) takes as the input
+<cite>predictions</cite> and <cite>targets</cite> and returns a scalar.</li>
+<li><strong>output_transform</strong> (<em>callable</em><em>, </em><em>optional</em>) – a callable that is used to transform the
+<a class="reference internal" href="engine.html#ignite.engine.Engine" title="ignite.engine.Engine"><code class="xref py py-class docutils literal notranslate"><span class="pre">ignite.engine.Engine</span></code></a>’s <cite>process_function</cite>’s output into the
+form expected by the metric. This can be useful if, for example, you have a multi-output model and
+you want to compute the metric with respect to one of the outputs.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ignite.metrics.RunningAverage">
+<em class="property">class </em><code class="descclassname">ignite.metrics.</code><code class="descname">RunningAverage</code><span class="sig-paren">(</span><em>src=None</em>, <em>alpha=0.98</em>, <em>output_transform=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ignite/metrics/running_average.html#RunningAverage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.metrics.RunningAverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute running average of a metric or the output of process function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>src</strong> (<a class="reference internal" href="#ignite.metrics.Metric" title="ignite.metrics.Metric"><em>Metric</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><em>None</em></a>) – input source: an instance of <a class="reference internal" href="#ignite.metrics.Metric" title="ignite.metrics.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">ignite.metrics.Metric</span></code></a> or None. The latter
+corresponds to <cite>engine.state.output</cite> which holds the output of process function.</li>
+<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – running average decay factor, default 0.98</li>
+<li><strong>output_transform</strong> (<em>Callable</em><em>, </em><em>optional</em>) – a function to use to transform the output if <cite>src</cite> is None and
+corresponds the output of process function. Otherwise it should be None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.98</span>
+<span class="n">acc_metric</span> <span class="o">=</span> <span class="n">RunningAverage</span><span class="p">(</span><span class="n">CategoricalAccuracy</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]]),</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">acc_metric</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s1">&#39;running_avg_accuracy&#39;</span><span class="p">)</span>
+
+<span class="n">avg_output</span> <span class="o">=</span> <span class="n">RunningAverage</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">avg_output</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s1">&#39;running_avg_loss&#39;</span><span class="p">)</span>
+
+<span class="nd">@trainer.on</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">ITERATION_COMPLETED</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">log_running_avg_metrics</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;running avg accuracy:&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;running_avg_accuracy&#39;</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;running avg loss:&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;running_avg_loss&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="ignite.exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="handlers.html" class="btn btn-neutral float-left" title="ignite.handlers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018, Torch Contributors
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: v0.1.1
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../v0.1.0/metrics.html">v0.1.0</a></dd>
+            <dd><a href="metrics.html">v0.1.1</a></dd>
+            <dd><a href="../v0.1.2/metrics.html">v0.1.2</a></dd>
+            <dd><a href="../v0.2.0/metrics.html">v0.2.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../master/metrics.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

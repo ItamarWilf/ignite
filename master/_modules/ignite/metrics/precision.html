@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ignite.metrics.precision &mdash; ignite master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/ignite-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                master (0.2.0)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../concepts.html#engine">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../concepts.html#events-and-handlers">Events and Handlers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts.html#timeline-and-events">Timeline and events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../concepts.html#state">State</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#each-engine-has-its-own-events">Each engine has its own Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#creating-custom-events-based-on-forward-backward-pass">Creating Custom Events based on Forward/Backward Pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#creating-custom-events-based-on-iteration-and-epoch">Creating Custom Events based on Iteration and Epoch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faq.html#gradients-accumulation">Gradients accumulation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../engine.html">ignite.engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../handlers.html">ignite.handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metrics.html">ignite.metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">ignite.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">ignite.utils</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contrib Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contrib/engines.html">ignite.contrib.engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contrib/metrics.html">ignite.contrib.metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/metrics.html#regression-metrics">Regression metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contrib/handlers.html">ignite.contrib.handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/handlers.html#module-ignite.contrib.handlers.custom_events">custom_events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/handlers.html#module-ignite.contrib.handlers.param_scheduler">param_scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/handlers.html#module-ignite.contrib.handlers.tensorboard_logger">tensorboard_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/handlers.html#module-ignite.contrib.handlers.visdom_logger">visdom_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/handlers.html#module-ignite.contrib.handlers.mlflow_logger">mlflow_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/handlers.html#module-ignite.contrib.handlers.tqdm_logger">tqdm_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/handlers.html#module-ignite.contrib.handlers.polyaxon_logger">polyaxon_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contrib/handlers.html#more-on-parameter-scheduling">More on parameter scheduling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contrib/handlers.html#example-with-ignite-contrib-handlers-cosineannealingscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.CosineAnnealingScheduler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contrib/handlers.html#example-with-ignite-contrib-handlers-linearcyclicalscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.LinearCyclicalScheduler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contrib/handlers.html#example-with-ignite-contrib-handlers-concatscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.ConcatScheduler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../contrib/handlers.html#piecewise-linear-scheduler">Piecewise linear scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contrib/handlers.html#example-with-ignite-contrib-handlers-lrscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.LRScheduler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../contrib/handlers.html#concatenate-with-torch-schedulers">Concatenate with torch schedulers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ignite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ignite.metrics.precision</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ignite.metrics.precision</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="kn">from</span> <span class="nn">ignite.metrics.accuracy</span> <span class="k">import</span> <span class="n">_BaseClassification</span>
+<span class="kn">from</span> <span class="nn">ignite.exceptions</span> <span class="k">import</span> <span class="n">NotComputableError</span>
+<span class="kn">from</span> <span class="nn">ignite.utils</span> <span class="k">import</span> <span class="n">to_onehot</span>
+
+
+<span class="k">class</span> <span class="nc">_BasePrecisionRecall</span><span class="p">(</span><span class="n">_BaseClassification</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_multilabel</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_average</span> <span class="o">=</span> <span class="n">average</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_positives</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-20</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">_BasePrecisionRecall</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="n">output_transform</span><span class="p">,</span> <span class="n">is_multilabel</span><span class="o">=</span><span class="n">is_multilabel</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_multilabel</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_positives</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_is_multilabel</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">_BasePrecisionRecall</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_positives</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_positives</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">NotComputableError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> must have at least one example before&quot;</span>
+                                     <span class="s2">&quot; it can be computed.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_positives</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="Precision"><a class="viewcode-back" href="../../../metrics.html#ignite.metrics.Precision">[docs]</a><span class="k">class</span> <span class="nc">Precision</span><span class="p">(</span><span class="n">_BasePrecisionRecall</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates precision for binary and multiclass data.</span>
+
+<span class="sd">    - `update` must receive output of the form `(y_pred, y)`.</span>
+<span class="sd">    - `y_pred` must be in the following shape (batch_size, num_categories, ...) or (batch_size, ...).</span>
+<span class="sd">    - `y` must be in the following shape (batch_size, ...).</span>
+
+<span class="sd">    In binary and multilabel cases, the elements of `y` and `y_pred` should have 0 or 1 values. Thresholding of</span>
+<span class="sd">    predictions can be done as below:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        def thresholded_output_transform(output):</span>
+<span class="sd">            y_pred, y = output</span>
+<span class="sd">            y_pred = torch.round(y_pred)</span>
+<span class="sd">            return y_pred, y</span>
+
+<span class="sd">        precision = Precision(output_transform=thresholded_output_transform)</span>
+
+<span class="sd">    In multilabel cases, average parameter should be True. However, if user would like to compute F1 metric, for</span>
+<span class="sd">    example, average parameter should be False. This can be done as shown below:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        precision = Precision(average=False, is_multilabel=True)</span>
+<span class="sd">        recall = Recall(average=False, is_multilabel=True)</span>
+<span class="sd">        F1 = precision * recall * 2 / (precision + recall + 1e-20)</span>
+<span class="sd">        F1 = MetricsLambda(lambda t: torch.mean(t).item(), F1)</span>
+
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        In multilabel cases, if average is False, current implementation stores all input data (output and target) in</span>
+<span class="sd">        as tensors before computing a metric. This can potentially lead to a memory error if the input data is larger</span>
+<span class="sd">        than available RAM.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        output_transform (callable, optional): a callable that is used to transform the</span>
+<span class="sd">            :class:`~ignite.engine.Engine`&#39;s `process_function`&#39;s output into the</span>
+<span class="sd">            form expected by the metric. This can be useful if, for example, you have a multi-output model and</span>
+<span class="sd">            you want to compute the metric with respect to one of the outputs.</span>
+<span class="sd">        average (bool, optional): if True, precision is computed as the unweighted average (across all classes</span>
+<span class="sd">            in multiclass case), otherwise, returns a tensor with the precision (for each class in multiclass case).</span>
+<span class="sd">        is_multilabel (bool, optional) flag to use in multilabel case. By default, value is False. If True, average</span>
+<span class="sd">            parameter should be True and the average is computed across samples, instead of classes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_multilabel</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Precision</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="n">output_transform</span><span class="p">,</span>
+                                        <span class="n">average</span><span class="o">=</span><span class="n">average</span><span class="p">,</span> <span class="n">is_multilabel</span><span class="o">=</span><span class="n">is_multilabel</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+        <span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_shape</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">((</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="s2">&quot;binary&quot;</span><span class="p">:</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="s2">&quot;multiclass&quot;</span><span class="p">:</span>
+            <span class="n">num_classes</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="n">num_classes</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;y_pred contains less classes than y. Number of predicted classes is </span><span class="si">{}</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot; and element in y has invalid class = </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">to_onehot</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">to_onehot</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="s2">&quot;multilabel&quot;</span><span class="p">:</span>
+            <span class="c1"># if y, y_pred shape is (N, C, ...) -&gt; (C, N x ...)</span>
+            <span class="n">num_classes</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">type_as</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+        <span class="n">correct</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y_pred</span>
+        <span class="n">all_positives</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">)</span>  <span class="c1"># Convert from int cuda/cpu to double cpu</span>
+
+        <span class="k">if</span> <span class="n">correct</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">true_positives</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">all_positives</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">true_positives</span> <span class="o">=</span> <span class="n">correct</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Convert from int cuda/cpu to double cpu</span>
+        <span class="c1"># We need double precision for the division true_positives / all_positives</span>
+        <span class="n">true_positives</span> <span class="o">=</span> <span class="n">true_positives</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="s2">&quot;multilabel&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_average</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span><span class="p">,</span> <span class="n">true_positives</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_positives</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_positives</span><span class="p">,</span> <span class="n">all_positives</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">+=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">true_positives</span> <span class="o">/</span> <span class="p">(</span><span class="n">all_positives</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_positives</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_positives</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_true_positives</span> <span class="o">+=</span> <span class="n">true_positives</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_positives</span> <span class="o">+=</span> <span class="n">all_positives</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018, Torch Contributors
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../../v0.1.0/index.html">v0.1.0</a></dd>
+            <dd><a href="../../../../v0.1.1/index.html">v0.1.1</a></dd>
+            <dd><a href="../../../../v0.1.2/index.html">v0.1.2</a></dd>
+            <dd><a href="../../../../v0.2.0/index.html">v0.2.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="precision.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

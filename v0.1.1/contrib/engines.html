@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ignite.contrib.engines &mdash; ignite master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ignite.contrib.metrics" href="metrics.html" />
+    <link rel="prev" title="ignite.exceptions" href="../exceptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/ignite-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts.html#engine">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts.html#events-and-handlers">Events and Handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts.html#state">State</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../engine.html">ignite.engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../handlers.html">ignite.handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metrics.html">ignite.metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">ignite.exceptions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contrib Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ignite.contrib.engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">ignite.contrib.metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handlers.html">ignite.contrib.handlers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ignite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ignite.contrib.engines</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/contrib/engines.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ignite-contrib-engines">
+<h1>ignite.contrib.engines<a class="headerlink" href="#ignite-contrib-engines" title="Permalink to this headline">¶</a></h1>
+<p>Contribution module of engines</p>
+<span class="target" id="module-ignite.contrib.engines"></span><dl class="class">
+<dt id="ignite.contrib.engines.Tbptt_Events">
+<em class="property">class </em><code class="descclassname">ignite.contrib.engines.</code><code class="descname">Tbptt_Events</code><a class="reference internal" href="../_modules/ignite/contrib/engines/tbptt.html#Tbptt_Events"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.engines.Tbptt_Events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aditional tbptt events.</p>
+<p>Additional events for truncated backpropagation throught time dedicated
+trainer.</p>
+<dl class="attribute">
+<dt id="ignite.contrib.engines.Tbptt_Events.TIME_ITERATION_COMPLETED">
+<code class="descname">TIME_ITERATION_COMPLETED</code><em class="property"> = 'time_iteration_completed'</em><a class="headerlink" href="#ignite.contrib.engines.Tbptt_Events.TIME_ITERATION_COMPLETED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ignite.contrib.engines.Tbptt_Events.TIME_ITERATION_STARTED">
+<code class="descname">TIME_ITERATION_STARTED</code><em class="property"> = 'time_iteration_started'</em><a class="headerlink" href="#ignite.contrib.engines.Tbptt_Events.TIME_ITERATION_STARTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ignite.contrib.engines.create_supervised_tbptt_trainer">
+<code class="descclassname">ignite.contrib.engines.</code><code class="descname">create_supervised_tbptt_trainer</code><span class="sig-paren">(</span><em>model</em>, <em>optimizer</em>, <em>loss_fn</em>, <em>tbtt_step</em>, <em>dim=0</em>, <em>device=None</em>, <em>non_blocking=False</em>, <em>prepare_batch=&lt;function _prepare_batch&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ignite/contrib/engines/tbptt.html#create_supervised_tbptt_trainer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ignite.contrib.engines.create_supervised_tbptt_trainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a trainer for truncated backprop through time supervised models.</p>
+<p>Training recurrent model on long sequences is computationally intensive as
+it requires to process the whole sequence before getting a gradient.
+However, when the training loss is computed over many outputs
+(<a class="reference external" href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/">X to many</a>),
+there is an opportunity to compute a gradient over a subsequence. This is
+known as
+<a class="reference external" href="https://machinelearningmastery.com/gentle-introduction-backpropagation-time/">truncated backpropagation through time</a>.
+This supervised trainer apply gradient optimization step every <cite>tbtt_step</cite>
+time steps of the sequence, while backpropagating through the same
+<cite>tbtt_step</cite> time steps.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<cite>torch.nn.Module</cite>) – the model to train</li>
+<li><strong>optimizer</strong> (<cite>torch.optim.Optimizer</cite>) – the optimizer to use</li>
+<li><strong>loss_fn</strong> (<em>torch.nn loss function</em>) – the loss function to use</li>
+<li><strong>tbtt_step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – the length of time chunks (last one may be smaller)</li>
+<li><strong>dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – axis representing the time dimension</li>
+<li><strong>device</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – device type specification (default: None).
+Applies to both model and batches.</li>
+<li><strong>non_blocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>optional</em>) – if True and this copy is between CPU and GPU,
+the copy may occur asynchronously with respect to the host. For other cases,
+this argument has no effect.</li>
+<li><strong>prepare_batch</strong> (<em>Callable</em><em>, </em><em>optional</em>) – function that receives <cite>batch</cite>, <cite>device</cite>,
+<cite>non_blocking</cite> and outputs tuple of tensors <cite>(batch_x, batch_y)</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a trainer engine with supervised update function</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../engine.html#ignite.engine.Engine" title="ignite.engine.Engine">Engine</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="metrics.html" class="btn btn-neutral float-right" title="ignite.contrib.metrics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../exceptions.html" class="btn btn-neutral float-left" title="ignite.exceptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018, Torch Contributors
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: v0.1.1
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../v0.1.0/index.html">v0.1.0</a></dd>
+            <dd><a href="engines.html">v0.1.1</a></dd>
+            <dd><a href="../../v0.1.2/contrib/engines.html">v0.1.2</a></dd>
+            <dd><a href="../../v0.2.0/contrib/engines.html">v0.2.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../master/contrib/engines.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

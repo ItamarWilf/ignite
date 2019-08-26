@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview: module code &mdash; ignite master documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/pytorch_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/ignite-logo-dark.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                master (0.2.0)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts.html#engine">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts.html#events-and-handlers">Events and Handlers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts.html#timeline-and-events">Timeline and events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts.html#state">State</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#each-engine-has-its-own-events">Each engine has its own Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#creating-custom-events-based-on-forward-backward-pass">Creating Custom Events based on Forward/Backward Pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#creating-custom-events-based-on-iteration-and-epoch">Creating Custom Events based on Iteration and Epoch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#gradients-accumulation">Gradients accumulation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../engine.html">ignite.engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../handlers.html">ignite.handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metrics.html">ignite.metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">ignite.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">ignite.utils</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contrib Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/engines.html">ignite.contrib.engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/metrics.html">ignite.contrib.metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/metrics.html#regression-metrics">Regression metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/handlers.html">ignite.contrib.handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/handlers.html#module-ignite.contrib.handlers.custom_events">custom_events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/handlers.html#module-ignite.contrib.handlers.param_scheduler">param_scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/handlers.html#module-ignite.contrib.handlers.tensorboard_logger">tensorboard_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/handlers.html#module-ignite.contrib.handlers.visdom_logger">visdom_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/handlers.html#module-ignite.contrib.handlers.mlflow_logger">mlflow_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/handlers.html#module-ignite.contrib.handlers.tqdm_logger">tqdm_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/handlers.html#module-ignite.contrib.handlers.polyaxon_logger">polyaxon_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contrib/handlers.html#more-on-parameter-scheduling">More on parameter scheduling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contrib/handlers.html#example-with-ignite-contrib-handlers-cosineannealingscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.CosineAnnealingScheduler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contrib/handlers.html#example-with-ignite-contrib-handlers-linearcyclicalscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.LinearCyclicalScheduler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contrib/handlers.html#example-with-ignite-contrib-handlers-concatscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.ConcatScheduler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../contrib/handlers.html#piecewise-linear-scheduler">Piecewise linear scheduler</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../contrib/handlers.html#example-with-ignite-contrib-handlers-lrscheduler">Example with <code class="docutils literal notranslate"><span class="pre">ignite.contrib.handlers.LRScheduler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../contrib/handlers.html#concatenate-with-torch-schedulers">Concatenate with torch schedulers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ignite</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Overview: module code</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="ignite/contrib/engines/tbptt.html">ignite.contrib.engines.tbptt</a></li>
+<li><a href="ignite/contrib/handlers/base_logger.html">ignite.contrib.handlers.base_logger</a></li>
+<li><a href="ignite/contrib/handlers/custom_events.html">ignite.contrib.handlers.custom_events</a></li>
+<li><a href="ignite/contrib/handlers/mlflow_logger.html">ignite.contrib.handlers.mlflow_logger</a></li>
+<li><a href="ignite/contrib/handlers/param_scheduler.html">ignite.contrib.handlers.param_scheduler</a></li>
+<li><a href="ignite/contrib/handlers/polyaxon_logger.html">ignite.contrib.handlers.polyaxon_logger</a></li>
+<li><a href="ignite/contrib/handlers/tensorboard_logger.html">ignite.contrib.handlers.tensorboard_logger</a></li>
+<li><a href="ignite/contrib/handlers/tqdm_logger.html">ignite.contrib.handlers.tqdm_logger</a></li>
+<li><a href="ignite/contrib/handlers/visdom_logger.html">ignite.contrib.handlers.visdom_logger</a></li>
+<li><a href="ignite/contrib/metrics/average_precision.html">ignite.contrib.metrics.average_precision</a></li>
+<li><a href="ignite/contrib/metrics/regression/canberra_metric.html">ignite.contrib.metrics.regression.canberra_metric</a></li>
+<li><a href="ignite/contrib/metrics/regression/fractional_absolute_error.html">ignite.contrib.metrics.regression.fractional_absolute_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/fractional_bias.html">ignite.contrib.metrics.regression.fractional_bias</a></li>
+<li><a href="ignite/contrib/metrics/regression/geometric_mean_absolute_error.html">ignite.contrib.metrics.regression.geometric_mean_absolute_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/geometric_mean_relative_absolute_error.html">ignite.contrib.metrics.regression.geometric_mean_relative_absolute_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/manhattan_distance.html">ignite.contrib.metrics.regression.manhattan_distance</a></li>
+<li><a href="ignite/contrib/metrics/regression/maximum_absolute_error.html">ignite.contrib.metrics.regression.maximum_absolute_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/mean_absolute_relative_error.html">ignite.contrib.metrics.regression.mean_absolute_relative_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/mean_error.html">ignite.contrib.metrics.regression.mean_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/mean_normalized_bias.html">ignite.contrib.metrics.regression.mean_normalized_bias</a></li>
+<li><a href="ignite/contrib/metrics/regression/median_absolute_error.html">ignite.contrib.metrics.regression.median_absolute_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/median_absolute_percentage_error.html">ignite.contrib.metrics.regression.median_absolute_percentage_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/median_relative_absolute_error.html">ignite.contrib.metrics.regression.median_relative_absolute_error</a></li>
+<li><a href="ignite/contrib/metrics/regression/r2_score.html">ignite.contrib.metrics.regression.r2_score</a></li>
+<li><a href="ignite/contrib/metrics/regression/wave_hedges_distance.html">ignite.contrib.metrics.regression.wave_hedges_distance</a></li>
+<li><a href="ignite/contrib/metrics/roc_auc.html">ignite.contrib.metrics.roc_auc</a></li>
+<li><a href="ignite/engine.html">ignite.engine</a></li>
+<ul><li><a href="ignite/engine/engine.html">ignite.engine.engine</a></li>
+</ul><li><a href="ignite/exceptions.html">ignite.exceptions</a></li>
+<li><a href="ignite/handlers/checkpoint.html">ignite.handlers.checkpoint</a></li>
+<li><a href="ignite/handlers/early_stopping.html">ignite.handlers.early_stopping</a></li>
+<li><a href="ignite/handlers/terminate_on_nan.html">ignite.handlers.terminate_on_nan</a></li>
+<li><a href="ignite/handlers/timing.html">ignite.handlers.timing</a></li>
+<li><a href="ignite/metrics/accumulation.html">ignite.metrics.accumulation</a></li>
+<li><a href="ignite/metrics/accuracy.html">ignite.metrics.accuracy</a></li>
+<li><a href="ignite/metrics/confusion_matrix.html">ignite.metrics.confusion_matrix</a></li>
+<li><a href="ignite/metrics/epoch_metric.html">ignite.metrics.epoch_metric</a></li>
+<li><a href="ignite/metrics/loss.html">ignite.metrics.loss</a></li>
+<li><a href="ignite/metrics/mean_absolute_error.html">ignite.metrics.mean_absolute_error</a></li>
+<li><a href="ignite/metrics/mean_pairwise_distance.html">ignite.metrics.mean_pairwise_distance</a></li>
+<li><a href="ignite/metrics/mean_squared_error.html">ignite.metrics.mean_squared_error</a></li>
+<li><a href="ignite/metrics/metric.html">ignite.metrics.metric</a></li>
+<li><a href="ignite/metrics/metrics_lambda.html">ignite.metrics.metrics_lambda</a></li>
+<li><a href="ignite/metrics/precision.html">ignite.metrics.precision</a></li>
+<li><a href="ignite/metrics/recall.html">ignite.metrics.recall</a></li>
+<li><a href="ignite/metrics/root_mean_squared_error.html">ignite.metrics.root_mean_squared_error</a></li>
+<li><a href="ignite/metrics/running_average.html">ignite.metrics.running_average</a></li>
+<li><a href="ignite/metrics/top_k_categorical_accuracy.html">ignite.metrics.top_k_categorical_accuracy</a></li>
+<li><a href="ignite/utils.html">ignite.utils</a></li>
+</ul>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018, Torch Contributors
+
+    </p>
+  </div>
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../v0.1.0/index.html">v0.1.0</a></dd>
+            <dd><a href="../../v0.1.1/index.html">v0.1.1</a></dd>
+            <dd><a href="../../v0.1.2/index.html">v0.1.2</a></dd>
+            <dd><a href="../../v0.2.0/index.html">v0.2.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
